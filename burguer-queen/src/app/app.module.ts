@@ -17,6 +17,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { ResolveStart } from '@angular/router';
 import { ChefComponent } from './chef/chef.component';
 import { ProductsComponent } from '../waiter/order/products/products.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ProductsComponent } from '../waiter/order/products/products.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NoopAnimationsModule,
   ],
   providers: [
     MenuService, AuthGuard
