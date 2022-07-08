@@ -34,7 +34,7 @@
     </thead>
     <tbody >
         <tr *ngFor="let productList of menu" 
-        [ngClass]=  "{'active': productList?.id=== selection?.id}">
+        [ngClass]=  "{'active': productList?.id === selection?.id}">
         <td  >{{productList.id}}</td>
         <td >{{productList.name}}</td>
         <td >{{productList.price}}</td>
@@ -49,7 +49,7 @@
           <button 
           type="button" 
           class="btn btn-success float-end"
-          (click)="UpdateInfo(  form.value, productList?.id)"
+          (click)="onUpdateInfo(  productList, productList?.id)"
           >Editar
         </button>
       
