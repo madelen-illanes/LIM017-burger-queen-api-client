@@ -34,6 +34,7 @@
     </thead>
     <tbody >
         <tr *ngFor="let productList of menu" 
+        
         [ngClass]=  "{'active': productList?.id === selection?.id}">
         <td  >{{productList.id}}</td>
         <td >{{productList.name}}</td>
