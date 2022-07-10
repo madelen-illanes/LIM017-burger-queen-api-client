@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, retry } from 'rxjs';
 import { Order, LoginResponse, User, Credentials } from '../app.module';
 import { Router } from '@angular/router';
+import { Product } from 'src/waiter/waiter.service';
 
 
 
@@ -48,7 +49,7 @@ export class MenuService {
           this.router.navigate(['/admin']);
 
         } else if (res.roles === 'waiter') {
-          this.router.navigate(['/waiter'])
+          this.router.navigate(['/products'])
         } else if(res.roles === 'chef'){
           this.router.navigate(['/chef'])
         } else {
@@ -83,8 +84,13 @@ export class MenuService {
   
 
   //obtener productos
-  getProduct(): Observable<Order[]> {
-    return this.http.get<Order[]>(this.urlProducts, this.httpOptions());
+  getProduct(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.urlProducts, this.httpOptions());
+  }
+
+  getProductId(product: any): Observable<void> {
+
+    return this.http.get<void>(`${this.urlProducts}${product.id}`, this.httpOptions())
   }
   
   // añadir productos

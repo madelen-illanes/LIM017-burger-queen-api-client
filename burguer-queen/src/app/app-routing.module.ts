@@ -20,9 +20,9 @@ const routes: Routes = [
     {path:"employees",component: EmployeesComponent} 
   ]
 },
-  { path: 'waiter', component: ProductsComponent,
+  { path: 'products', component: ProductsComponent,
   children: [ 
-    {path:"products", component: OrderComponent} 
+    {path:'waiter', component: OrderComponent} 
   ] },
   { path: 'chef', component: ChefComponent},
   { path: 'home', component: HomeComponent},

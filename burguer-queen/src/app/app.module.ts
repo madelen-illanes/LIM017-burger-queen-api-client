@@ -97,6 +97,8 @@ export interface Order {
   products: any;
   client: string;
   status: string;
+  quantity: number;
+  total?: any;
   // productList: ItemsEdited;
 }
 export interface LoginResponse {

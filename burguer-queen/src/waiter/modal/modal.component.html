@@ -1,26 +1,28 @@
-<h1 mat-dialog-title> Add Ordenes</h1>
+<h1 mat-dialog-title> Añadir Ordenes</h1>
 <div mat-dialog-content>
+    <form [formGroup]="form">
+        
     <mat-form-field appearance="outline">
-        <mat-label>Cliente</mat-label>
-        <input matInput placeholder="Placeholder">
+        <mat-label>Nombre del cliente</mat-label>
+        <input formControlName="client" matInput placeholder="Placeholder">
         <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
         <!-- <mat-hint>Hint</mat-hint> -->
     </mat-form-field>
     <mat-form-field appearance="outline">
         <mat-label>userId</mat-label>
-        <input matInput placeholder="Placeholder">
+        <input formControlName="userId" matInput placeholder="Placeholder">
         <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
         <!-- <mat-hint>Hint</mat-hint> -->
     </mat-form-field>
     <mat-form-field appearance="outline">
         <mat-label>Cantidad</mat-label>
-        <input matInput placeholder="Placeholder">
+        <input formControlName="qty" matInput placeholder="Placeholder">
         <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
         <!-- <mat-hint>Hint</mat-hint> -->
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Escoge una opción</mat-label>
-        <mat-select [disabled]="disableSelect.value">
+        <mat-select  [disabled]="disableSelect.value">
             <mat-option value="option1" disabled>Estado de la orden</mat-option>
             <mat-option value="option2"> Pendiente </mat-option>
         </mat-select>
@@ -41,7 +43,6 @@
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker touchUi #picker></mat-datepicker>
     </mat-form-field>
-    
-      
+    </form>
 
 </div>
