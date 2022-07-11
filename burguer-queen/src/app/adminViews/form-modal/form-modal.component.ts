@@ -71,7 +71,7 @@ export class FormModalComponent implements OnInit {
           this.dialogRef.close('Editar');
         },
         error: (error) => {
-          alert(`${error}' Error en la actualización de datos`);
+          alert(`${error} Error en la actualización de datos`);
         }
       }
     )

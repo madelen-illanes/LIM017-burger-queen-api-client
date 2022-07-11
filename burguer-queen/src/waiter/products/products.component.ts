@@ -29,17 +29,8 @@ export class ProductsComponent implements OnInit {
     public waiterService: WaiterService
   ) { }
 
-  private emitChangeSource = new Subject<any>();
-  // Observable string streams
-  changeEmitted$ = this.emitChangeSource.asObservable();
 
-  // Service message commands
-  openSideBareService(event: boolean) {
-    this.emitChangeSource.next(event);
-    console.log(event, "observador service recibio esto de hijo")
-  }
-
-  ngOnInit(): void {
+   ngOnInit(): void {
     this.getArrayOfProducts();
  
   }
@@ -57,23 +48,7 @@ export class ProductsComponent implements OnInit {
       })
   }
 
-   
-  addOrder(res: any) {
-    this.inputs = {
-      name: res.name,
-      type: res.type,
-      price: res.price,
-      qty: res.qty,
-      userId: res.userId,
-      client: res.client
-    }
-    this.menuService.addProducts('http://localhost:8080/orders', this.inputs)
-      .subscribe({
-        next: res => console.log('respuesta con id', res),
-        error: error => console.log(error)
-      })
-  }
-
+ 
   valueToPay(products:ProductCart[]){
     console.log("total de ordenes",products)
     let grandTotal = 0;
@@ -121,19 +96,10 @@ export class ProductsComponent implements OnInit {
 
     });
   }
+  logOut(){
+    localStorage.clear();
+  }
  
-  openSideBareEvent(event: boolean): void {
-    console.log("pasando un true del hijo al servicio")
-    this.waiterService.openSideBareService(event)
-  }
-  addToCart(product: object) {
-    this.openSideBareEvent(true);
-    console.log("añadiendo al carrito")
-    //console.log("soy el productooooooooo",product)
-    this.waiterService.addtoCart(product);
-  }
-
-
 }
 
 

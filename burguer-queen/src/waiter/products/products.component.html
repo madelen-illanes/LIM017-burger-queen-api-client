@@ -1,38 +1,4 @@
-<!-- <a routerLink="/waiter">Ver Ordenes</a>
-<router-outlet></router-outlet> -->
 
-<!-- <button class="nav-menu" data-value="breakfast">
-    Desayunos
-</button>
-<button class="nav-menu" data-value="lunch">
-    Almuerzos y Acompañamientos
-</button> -->
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <div *ngFor=" let productList of menu " (click)="onClick(productList)" [ngClass]="{'alert alert-info': productList.id === selection}">
-                {{productList.id}}
-                {{productList.name}}
-                {{productList.price}}
-                {{productList.type}}
-                <img src="{{productList.image}}" alt="producto"><br>
-            </div>
-        </div>
-        <div class="col-md-4">
-
-            <h1>poner la orden tomada</h1>
-            <div>
-                <label for="client"><mark>Nombre del cliente</mark></label>
-                <input type="text" name="" id="client" >
-                <label for="userId"><mark>ID del cliente</mark></label>
-                <input type="text" name="" id="userId"> 
-                <p>Total:</p>
-                <button type="button" class="btn btn-success">Enviar a Cocina</button>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- <a routerLink="waiter">Tomar pedido</a>-->
 <mat-icon routerLink="waiter" aria-hidden="false" aria-label="Example home icon">restaurant_menu</mat-icon>
 <router-outlet></router-outlet>
 <section class="content" [dir]="directionOrder"></section>
@@ -64,3 +30,6 @@
     </mat-card>
   </div>
 </div>
+<mat-card-actions>
+  <button (click)="logOut()" routerLink="" mat-button>Salir</button>
+</mat-card-actions>

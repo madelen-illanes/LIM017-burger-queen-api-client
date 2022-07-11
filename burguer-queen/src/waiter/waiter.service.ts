@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 export interface Product {
   dateEntry?: string;
   id: number;
@@ -27,7 +27,6 @@ export class WaiterService {
 
   arrayProducts: any = [];
   public productList = new BehaviorSubject<any>([]);
-  private emitChangeSource = new Subject<any>();
   constructor() { }
 
   getProducts(): Observable<any> {
@@ -35,13 +34,16 @@ export class WaiterService {
     return emittedProductList;
   }
 
+
   removeCartItem(product: any) {
     this.arrayProducts.map((e: any, index: any) => {
       if (product.id === e.id) {
         this.arrayProducts.splice(index, 1);
       }
+    console.log('removeCartItem', product.id)
+    this.productList.next(this.arrayProducts);
     })
-    this.productList.next(this.arrayProducts)
+ 
   }
   removeAllCart() {
     this.arrayProducts = [];
@@ -60,14 +62,8 @@ export class WaiterService {
       }
     }
     this.productList.next(this.arrayProducts);
-    // console.log("array con productos del cliente", this.arrayProducts)
+    console.log("array con productos del cliente", this.arrayProducts)
   }
 
-  changeEmitted$ = this.emitChangeSource.asObservable();
-  // Service message commands
-  openSideBareService(event: boolean) {
-    this.emitChangeSource.next(event);
-    console.log(event, "observador service recibio esto de hijo")
-  }
-
+ 
 }

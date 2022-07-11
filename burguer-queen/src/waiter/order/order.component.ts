@@ -27,7 +27,9 @@ export class OrderComponent implements OnInit {
     this.comeToService();
     this.form = this.formBuilder.group({
       client: ["", Validators.required],
-      userId: ["", Validators.required],});
+      userId: ["", Validators.required],
+      dateEntry: ["", Validators.required]
+    });
   }
   comeToService(){
     this.waiterService.getProducts()
@@ -38,7 +40,7 @@ export class OrderComponent implements OnInit {
     })
   }
   orderOfClient(products:ProductCart[]){
-    // console.log("orden del cliente",products)
+   console.log("orden del cliente",products)
     let grandTotal = 0;
     products.map((e:any) => {
       grandTotal += e.total;
@@ -46,56 +48,39 @@ export class OrderComponent implements OnInit {
     return grandTotal;
   }
 
+  addOrder(){
+   let user = this.form.value;
+    const objOrder: any = {
+      "client": user.client,
+      "userId": user.userId,
+      "dataEntry": user.dataEntry,
+      "products": this.products,
+      "status": "pending"
+    }
+
+    if(this.form.valid){
+      this.menuService.addProducts('http://localhost:8080/orders', objOrder)
+      .subscribe({
+        next: (res) => {
+          console.log(res)
+          alert("Orden creada exitosamente")
+          this.form.reset();
+        },
+        error:(error) => {
+          alert("Error mientras se agregaba la orden")
+
+        }
+      })
+    }
+  }
+
   removeItem(product: any){
     this.waiterService.removeCartItem(product)
+    console.log('remover item', product)
+   
   }
   emptyCart(){
     this.waiterService.removeAllCart()
-  }
-
-  addQuantity(product:Product) {
-    console.log(product)
-    Object.assign(product,{quantity:product.quantity + 1})
-    this.addSubTotal(product)
-    console.log("lista actualizadaaaaaaaaaaaaaaaaaaaaaaaa",this.products)
-    this.totalOrder = this.calctotalOrder(this.products)
-    
-
-  }
-  removeQuantity(product: Product) {
-    console.log(product)
-    if (product.quantity > 1) {
-      Object.assign(product, { quantity: product.quantity - 1 });
-    }
-    this.removeSubTotal(product)
-    this.totalOrder = this.calctotalOrder(
-      this.products)
-    return
-  }
-  addSubTotal(product: Product) {
-    const result = product.quantity * product.price;
-    Object.assign(product, { total: result });
-   
-  }
-
-  removeSubTotal(product: Product) {
-    if (product.total > product.price) {
-      const result = product.total - product.price
-      Object.assign(product, { total: result });
-      //this.mainCartService.addToCart(product)
-    } else {
-      return
-    }
-  }
-
-
-  calctotalOrder(products: Product) {
-    console.log("products de GRAN TOTALLLLLLLLLL", products)
-    let grandTotal = 0;
-    this.products.map((e: any) => {
-      grandTotal += e.total;
-    })
-    return grandTotal;
   }
 
 }
