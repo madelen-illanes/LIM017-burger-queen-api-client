@@ -8,7 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth/auth.guard';
-import { EmployeesComponent } from './employees/employees.component';
+import { EmployeesComponent } from './adminViews/employees/employees.component';
 import { ChefComponent } from './chef/chef.component';
 import { ProductsComponent } from 'src/waiter/products/products.component';
 

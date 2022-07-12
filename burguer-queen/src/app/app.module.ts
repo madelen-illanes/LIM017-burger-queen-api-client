@@ -13,7 +13,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomeComponent } from './home/home.component';
 import { MenuService } from './services/menu.service';
 import { AuthGuard } from './auth/auth.guard';
-import { EmployeesComponent } from './employees/employees.component';
+import { EmployeesComponent } from './adminViews/employees/employees.component';
 import { ResolveStart } from '@angular/router';
 import { ChefComponent } from './chef/chef.component';
 import { ProductsComponent } from '../waiter/products/products.component';
@@ -34,7 +34,8 @@ import { FormModalComponent } from './adminViews/form-modal/form-modal.component
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table'; 
-import {MatIconModule} from '@angular/material/icon'; 
+import {MatIconModule} from '@angular/material/icon';
+import { EmployeesModalComponent } from './adminViews/employees-modal/employees-modal.component'; 
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import {MatIconModule} from '@angular/material/icon';
     ProductsComponent,
     ModalComponent,
     FormModalComponent,
+    EmployeesModalComponent,
   ],
   imports: [
     MatIconModule,
@@ -105,6 +107,7 @@ export interface LoginResponse {
 
 export interface User {
   id: string;
+  password: string;
   email: string;
   roles: string;
  }

@@ -45,8 +45,6 @@ export class AdminComponent implements OnInit {
 
   }
 
-  
-
   getAllProduct() {
     this.menuService.getProduct()
       .subscribe({
