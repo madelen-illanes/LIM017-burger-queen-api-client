@@ -15,7 +15,7 @@ import { MenuService } from './services/menu.service';
 import { AuthGuard } from './auth/auth.guard';
 import { EmployeesComponent } from './employees/employees.component';
 import { ResolveStart } from '@angular/router';
-import { ChefComponent } from './chef/chef.component';
+import { ChefComponent } from './ChefViews/chef/chef.component';
 import { ProductsComponent } from '../waiter/products/products.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
@@ -35,6 +35,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table'; 
 import {MatIconModule} from '@angular/material/icon'; 
+import {BidiModule} from '@angular/cdk/bidi';
+import { PendingStatusComponent } from './ChefViews/pending/pending-status.component';
+import { DeliveredStatusComponent } from './ChefViews/delivered-status/delivered-status.component';
 
 @NgModule({
   declarations: [
@@ -51,8 +54,11 @@ import {MatIconModule} from '@angular/material/icon';
     ProductsComponent,
     ModalComponent,
     FormModalComponent,
+    PendingStatusComponent,
+    DeliveredStatusComponent
   ],
   imports: [
+    BidiModule,
     MatIconModule,
     MatTableModule,
     MatSortModule,
