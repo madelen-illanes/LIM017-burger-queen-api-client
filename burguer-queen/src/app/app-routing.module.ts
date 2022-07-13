@@ -9,8 +9,10 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth/auth.guard';
 import { EmployeesComponent } from './adminViews/employees/employees.component';
-import { ChefComponent } from './chef/chef.component';
+import { ChefComponent } from './ChefViews/chef/chef.component';
 import { ProductsComponent } from 'src/waiter/products/products.component';
+import { PendingStatusComponent } from './ChefViews/pending/pending-status.component';
+import { DeliveredStatusComponent } from './ChefViews/delivered-status/delivered-status.component';
 
 const routes: Routes = [
   { path: '',redirectTo: '/home', pathMatch: 'full'},
@@ -24,7 +26,13 @@ const routes: Routes = [
   children: [ 
     {path:'waiter', component: OrderComponent} 
   ] },
-  { path: 'chef', component: ChefComponent},
+  { path: 'chef', component: ChefComponent,
+  canActivate:[AuthGuard],
+  children: [
+    {path:'pending', component: PendingStatusComponent },
+    {path:'delivered', component: DeliveredStatusComponent} 
+  ]
+},
   { path: 'home', component: HomeComponent},
   { path: 'register', component: RegisterComponent },
   { path: '**', component: PagenotfoundComponent}

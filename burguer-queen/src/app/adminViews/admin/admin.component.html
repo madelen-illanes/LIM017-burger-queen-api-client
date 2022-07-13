@@ -1,3 +1,4 @@
+
 <mat-icon routerLink="employees" aria-hidden="false" aria-label="Example home icon">account_circle</mat-icon>
 <router-outlet></router-outlet>
 <button id="modal" mat-button (click)="openDialog()">Añadir al carrito</button>
@@ -46,12 +47,14 @@
        <button mat-icon-button (click)="editProduct(row)" color="primary" >
         <mat-icon>edit</mat-icon>
        </button>
-       <button mat-icon-button color="warn" >
-        <mat-icon>delete</mat-icon>
+       <button mat-icon-button color="warn" 
+       (click)="onProductDelete(row.id)"
+       ><mat-icon>delete</mat-icon>
        </button>
       </td>
     </ng-container>
 
+  
      
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

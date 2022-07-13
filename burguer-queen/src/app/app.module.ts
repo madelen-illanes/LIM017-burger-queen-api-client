@@ -15,7 +15,7 @@ import { MenuService } from './services/menu.service';
 import { AuthGuard } from './auth/auth.guard';
 import { EmployeesComponent } from './adminViews/employees/employees.component';
 import { ResolveStart } from '@angular/router';
-import { ChefComponent } from './chef/chef.component';
+import { ChefComponent } from './ChefViews/chef/chef.component';
 import { ProductsComponent } from '../waiter/products/products.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
@@ -36,6 +36,10 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table'; 
 import {MatIconModule} from '@angular/material/icon';
 import { EmployeesModalComponent } from './adminViews/employees-modal/employees-modal.component'; 
+import {BidiModule} from '@angular/cdk/bidi';
+import { PendingStatusComponent } from './ChefViews/pending/pending-status.component';
+import { DeliveredStatusComponent } from './ChefViews/delivered-status/delivered-status.component';
+import { HomeAdminComponent } from './home-admin/home-admin.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +57,9 @@ import { EmployeesModalComponent } from './adminViews/employees-modal/employees-
     ModalComponent,
     FormModalComponent,
     EmployeesModalComponent,
+    PendingStatusComponent,
+    DeliveredStatusComponent,
+    HomeAdminComponent
   ],
   imports: [
     MatIconModule,

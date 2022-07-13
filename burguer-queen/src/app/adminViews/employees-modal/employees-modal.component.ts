@@ -33,7 +33,26 @@ export class EmployeesModalComponent implements OnInit {
       this.form.controls['roles'].setValue(this.editData.roles);
     }
   }
-  addEmployees() {
+
+  // addUsers():void{
+  //   console.log(this.form.value)
+  //   this.menuService.addProducts('http://localhost:8080/users',
+  //   {  
+  //   email: this.form.value.email,
+  //   password: this.form.value.password,
+  //   roles: this.form.value.roles
+  
+  //   }) 
+  //   .subscribe({
+  //     next: res => {
+  //       console.info(res)
+  //     },
+  //     error: error => {
+  //       console.error(error.status)
+  //     }
+  //   })
+  // }
+  addUsers() {
     if (!this.editData) {
       console.log(this.form.value)
       if (this.form.valid) {
@@ -60,7 +79,7 @@ export class EmployeesModalComponent implements OnInit {
       {
         next: (res) => {
           console.log(res)
-          alert('Empleado agregado exitosamente');
+          alert('Edición exitosa');
           this.form.reset();
           this.dialogRef.close('Editar');
         },

@@ -37,8 +37,6 @@ export class FormModalComponent implements OnInit {
     }
   }
 
-
-
   addProduct() {
     if (!this.editData) {
       console.log(this.form.value)

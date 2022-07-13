@@ -18,7 +18,7 @@
     <h4>Tipo de rol</h4>
     <mat-form-field appearance="fill">
         <mat-label>Escoge una opción</mat-label>
-        <mat-select  formControlName="type">
+        <mat-select  formControlName="roles">
             <mat-option value="admin">Administrador</mat-option>
             <mat-option value="waiter">Waiter</mat-option>
             <mat-option value="chef">Chef</mat-option>
@@ -29,6 +29,6 @@
 </div>
 <div mat-dialog-actions [align]="'end'">
     <button class="btnExit" mat-raised-button mat-dialog-close>Cerrar</button>
-    <button class="btnSave" mat-raised-button color="primary" (click)="addEmployees()">{{actionBtn}}</button>
+    <button class="btnSave" mat-raised-button color="primary" (click)="addUsers()">{{actionBtn}}</button>
 </div>
     

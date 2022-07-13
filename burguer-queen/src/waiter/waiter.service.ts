@@ -8,7 +8,7 @@ export interface Product {
   price: number;
   type: string;
   quantity: number;
-  total: number
+  total?: number
 }
 export interface ProductCart {
   dateEntry?: string;

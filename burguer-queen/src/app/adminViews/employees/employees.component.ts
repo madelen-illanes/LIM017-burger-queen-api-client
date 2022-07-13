@@ -32,7 +32,7 @@ export class EmployeesComponent implements OnInit {
   constructor(private menuService: MenuService,
     public formBuilder: FormBuilder, public dialog: MatDialog) { }
 
-    ngOnInit(): void {
+  ngOnInit(): void {
       this.menuService.getAllUsers().
       subscribe((users) => (this.users = users, console.info(users))),
         this.form = this.formBuilder.group({
@@ -47,32 +47,14 @@ export class EmployeesComponent implements OnInit {
     if(confirm('¿Estás seguro?')){
       this.menuService.deleteUser(id)
       .subscribe(
-        (res: any) => { console.log('borrando producto', res)
+        (res: any) => { console.log('borrando empleado', res)
           const productArray = this.users.filter( (product: { id: string; }) => product.id !== id );
           this.users = [...productArray];
         }
       )
     }
   }
-  addUsers():void{
-    console.log(this.form.value)
-    this.menuService.addProducts('http://localhost:8080/users',
-    {  
-    email: this.form.value.email,
-    password: this.form.value.password,
-    roles: this.form.value.roles
-  
-    }) 
-    .subscribe({
-      next: res => {
-        console.info(res)
-      },
-      error: error => {
-        console.error(error.status)
-      }
-    })
-  }
-  
+
   editEmployees(row: any){
     this.dialog.open(EmployeesModalComponent, {
       width: '50%',

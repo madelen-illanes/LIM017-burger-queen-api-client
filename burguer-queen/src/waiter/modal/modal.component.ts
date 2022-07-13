@@ -35,8 +35,11 @@ export class ModalComponent implements OnInit {
     this.menuService.getOrder().subscribe(
       (res) => (this.card = res, console.log(res)));
   }
-  updateOrder() {
-    this.menuService.updateOrder(this.form.value, this.editData.id)
+  updateOrder(id:number) {
+    const data = {
+      status: 'delivered'
+    }
+    this.menuService.updateOrder(data, this.editData.id)
       .subscribe(
         {
           next: (res) => {
