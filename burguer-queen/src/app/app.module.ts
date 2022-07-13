@@ -39,7 +39,7 @@ import { EmployeesModalComponent } from './adminViews/employees-modal/employees-
 import {BidiModule} from '@angular/cdk/bidi';
 import { PendingStatusComponent } from './ChefViews/pending/pending-status.component';
 import { DeliveredStatusComponent } from './ChefViews/delivered-status/delivered-status.component';
-import { HomeAdminComponent } from './home-admin/home-admin.component';
+
 
 @NgModule({
   declarations: [
@@ -59,7 +59,7 @@ import { HomeAdminComponent } from './home-admin/home-admin.component';
     EmployeesModalComponent,
     PendingStatusComponent,
     DeliveredStatusComponent,
-    HomeAdminComponent
+    
   ],
   imports: [
     MatIconModule,
