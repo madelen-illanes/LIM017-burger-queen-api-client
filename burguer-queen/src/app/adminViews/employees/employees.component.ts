@@ -32,25 +32,17 @@ export class EmployeesComponent implements OnInit {
   constructor(private menuService: MenuService,
     public formBuilder: FormBuilder, public dialog: MatDialog) { }
 
-  ngOnInit(): void {
-    this.getAllProduct(),
-      this.form = this.formBuilder.group({
-        email: ['', Validators.required],
-        password: ['', Validators.required],
-        roles: ['', Validators.required],
+    ngOnInit(): void {
+      this.menuService.getAllUsers().
+      subscribe((users) => (this.users = users, console.info(users))),
+        this.form = this.formBuilder.group({
+          email: ['', Validators.required],
+          password: ['', Validators.required],
+          roles: ['', Validators.required],
+  
+        })
+  }
 
-      })
-  }
-  getAllProduct() {
-    this.menuService.getProduct()
-      .subscribe({
-        next: (res) => {
-          this.dataSource = new MatTableDataSource(res)
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-        }
-      })
-  }
   onUserDelete( id: string){
     if(confirm('¿Estás seguro?')){
       this.menuService.deleteUser(id)
@@ -62,7 +54,25 @@ export class EmployeesComponent implements OnInit {
       )
     }
   }
-      
+  addUsers():void{
+    console.log(this.form.value)
+    this.menuService.addProducts('http://localhost:8080/users',
+    {  
+    email: this.form.value.email,
+    password: this.form.value.password,
+    roles: this.form.value.roles
+  
+    }) 
+    .subscribe({
+      next: res => {
+        console.info(res)
+      },
+      error: error => {
+        console.error(error.status)
+      }
+    })
+  }
+  
   editEmployees(row: any){
     this.dialog.open(EmployeesModalComponent, {
       width: '50%',
