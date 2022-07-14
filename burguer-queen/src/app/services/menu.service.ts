@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, retry } from 'rxjs';
 import { Order, LoginResponse, User, Credentials } from '../app.module';
 import { Router } from '@angular/router';
-import { Product } from 'src/waiter/waiter.service';
+import { Product } from 'src/app/waiterView/waiter.service';
 
 
 
@@ -119,7 +119,5 @@ export class MenuService {
     console.log('data', data)
     return this.http.patch<void>(`${this.apiUrl}${id}`, data, this.httpOptions())
   }
-//   sumar(id: string)Observable<void> {
-//   return this.http.post<void>(`${this.urlProducts}/${id}`, this.httpOptions())
-// }
+
 }

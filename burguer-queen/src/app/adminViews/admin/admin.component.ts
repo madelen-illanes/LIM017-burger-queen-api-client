@@ -94,4 +94,7 @@ export class AdminComponent implements OnInit {
 
     });
   }
+  logOut(){
+    localStorage.clear();
+  }
 }
