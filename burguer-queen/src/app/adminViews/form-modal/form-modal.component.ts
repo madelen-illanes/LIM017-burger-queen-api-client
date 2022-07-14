@@ -34,7 +34,7 @@ export class FormModalComponent implements OnInit {
       this.form.controls['price'].setValue(this.editData.price);
       this.form.controls['image'].setValue(this.editData.image);
       this.form.controls['type'].setValue(this.editData.type);
-    }
+    } 
   }
 
   addProduct() {

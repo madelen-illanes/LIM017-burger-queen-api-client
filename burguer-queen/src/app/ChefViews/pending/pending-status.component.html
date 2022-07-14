@@ -19,7 +19,7 @@
               </div>
               <p class="price">{{product.price | currency }}</p>
             </div>
-            <div class="options" *ngIf="(order.status === 'pending')">
+            <div class="options" *ngIf="(order.status === 'up ready to server')">
               <button mat-stroked-button class="btndelivered" (click)="getOrdersPending()" >Listo</button>
             </div>
           </mat-card-content>
