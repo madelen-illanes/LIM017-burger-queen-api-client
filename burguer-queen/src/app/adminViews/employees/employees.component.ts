@@ -1,13 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../app.module';
-import { ItemsEdited, Order } from '../../app.module';
 import { MenuService } from '../../services/menu.service';
 import {EmployeesModalComponent} from '../../adminViews/employees-modal/employees-modal.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table'
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',

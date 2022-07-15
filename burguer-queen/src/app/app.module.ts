@@ -39,6 +39,7 @@ import {BidiModule} from '@angular/cdk/bidi';
 import { PendingStatusComponent } from './ChefViews/pending/pending-status.component';
 import { DeliveredStatusComponent } from './ChefViews/delivered-status/delivered-status.component';
 import { ReadyOrdersComponent } from './waiterView/ready-orders/ready-orders.component';
+import { HomeAdminComponent } from './adminViews/home-admin/home-admin.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { ReadyOrdersComponent } from './waiterView/ready-orders/ready-orders.com
     EmployeesModalComponent,
     PendingStatusComponent,
     DeliveredStatusComponent,
-    ReadyOrdersComponent,  
+    ReadyOrdersComponent,
+    HomeAdminComponent,  
   ],
   imports: [
     MatIconModule,

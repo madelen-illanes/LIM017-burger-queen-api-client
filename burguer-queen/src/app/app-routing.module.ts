@@ -13,13 +13,15 @@ import { ProductsComponent } from 'src/app/waiterView/products/products.componen
 import { PendingStatusComponent } from './ChefViews/pending/pending-status.component';
 import { DeliveredStatusComponent } from './ChefViews/delivered-status/delivered-status.component';
 import { ReadyOrdersComponent } from './waiterView/ready-orders/ready-orders.component';
+import { HomeAdminComponent } from './adminViews/home-admin/home-admin.component';
 
 const routes: Routes = [
   { path: '',redirectTo: '/home', pathMatch: 'full'},
   { path: 'login', component: LoginComponentComponent},
   { path: 'admin', component: AdminComponent,
   children: [ 
-    {path:"employees",component: EmployeesComponent} 
+    {path:'employees',component: EmployeesComponent},
+    {path:'home-admin',component: HomeAdminComponent}
   ]
 },
   { path: 'products', component: ProductsComponent,
