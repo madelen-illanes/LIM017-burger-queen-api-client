@@ -32,14 +32,16 @@ export class TotalproductComponent implements OnInit {
   @Input() className = 'btn-primary';
 
   constructor(private menuService: MenuService,
-    public formBuilder: FormBuilder, public dialog: MatDialog) { }
-  ngOnInit(): void {
+    public formBuilder: FormBuilder,
+     public dialog: MatDialog) { }
+  
+    ngOnInit(): void {
     this.getAllProduct(),
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
       type: ['', Validators.required],
       price: ['', Validators.required],
-      image: ["", Validators.required]
+      image: ['', Validators.required]
 
     })
 

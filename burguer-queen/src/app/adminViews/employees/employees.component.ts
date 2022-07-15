@@ -33,8 +33,7 @@ export class EmployeesComponent implements OnInit {
     public formBuilder: FormBuilder, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-      this.menuService.getAllUsers().
-      subscribe((users) => (this.users = users, console.info(users))),
+      this.getAllUser();
         this.form = this.formBuilder.group({
           email: ['', Validators.required],
           password: ['', Validators.required],
@@ -43,12 +42,24 @@ export class EmployeesComponent implements OnInit {
         })
   }
 
+  getAllUser(){
+    this.menuService.getAllUsers()
+    .subscribe({
+      next: (res) => {
+        console.log(res)
+        this.dataSource = new MatTableDataSource(res)
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      }
+    })
+  }
+
   onUserDelete( id: string){
     if(confirm('¿Estás seguro?')){
       this.menuService.deleteUser(id)
       .subscribe(
         (res: any) => { console.log('borrando empleado', res)
-          const productArray = this.users.filter( (product: { id: string; }) => product.id !== id );
+          const productArray = this.users.filter((employees: any) => employees.id !== id );
           this.users = [...productArray];
         }
       )
