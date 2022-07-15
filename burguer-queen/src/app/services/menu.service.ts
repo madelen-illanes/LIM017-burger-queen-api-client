@@ -49,7 +49,7 @@ export class MenuService {
         localStorage.setItem('id', res.id);
         localStorage.setItem('email', res.email);
         if (res.roles === 'admin') {
-          this.router.navigate(['/home-admin']);
+          this.router.navigate(['/admin']);
 
         } else if (res.roles === 'waiter') {
           this.router.navigate(['/products'])

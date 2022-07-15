@@ -64,8 +64,13 @@ img{
   .mat-column-created {
     max-width: 124px;
   }
-  .iconEmployee{
-    font-size:50px;
-    width: 80px;
-    height:80px;
-  }
+.iconEmployees{
+  font-size:20px;
+  width: 80px;
+  height:80px;
+}
+.iconProductList{
+font-size:20px;
+width: 80px;
+height:80px;
+}

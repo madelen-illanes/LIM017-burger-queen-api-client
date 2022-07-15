@@ -39,7 +39,7 @@ import {BidiModule} from '@angular/cdk/bidi';
 import { PendingStatusComponent } from './ChefViews/pending/pending-status.component';
 import { DeliveredStatusComponent } from './ChefViews/delivered-status/delivered-status.component';
 import { ReadyOrdersComponent } from './waiterView/ready-orders/ready-orders.component';
-import { ListproductsComponent } from './adminViews/listproducts/listproducts.component';
+
 
 
 @NgModule({
@@ -60,7 +60,7 @@ import { ListproductsComponent } from './adminViews/listproducts/listproducts.co
     PendingStatusComponent,
     DeliveredStatusComponent,
     ReadyOrdersComponent,
-    ListproductsComponent,  
+
   ],
   imports: [
     MatIconModule,

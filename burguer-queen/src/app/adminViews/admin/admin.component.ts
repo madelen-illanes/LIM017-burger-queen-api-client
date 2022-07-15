@@ -20,6 +20,8 @@ export class AdminComponent implements OnInit {
   productsView = true;
   displayedColumns: string[] = ['id', 'name', 'price', 'type', 'image', 'action'];
   dataSource!: MatTableDataSource<any>;
+  isShownDelivered: boolean = false ; 
+  isShownReadyOrders: boolean = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -92,6 +94,7 @@ export class AdminComponent implements OnInit {
 
     });
   }
+
   logOut(){
     localStorage.clear();
   }
