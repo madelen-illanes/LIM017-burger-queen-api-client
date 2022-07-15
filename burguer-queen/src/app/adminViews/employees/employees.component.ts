@@ -77,4 +77,8 @@ export class EmployeesComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  logOut(){
+    localStorage.clear();
+  }
 }

@@ -39,6 +39,7 @@ import {BidiModule} from '@angular/cdk/bidi';
 import { PendingStatusComponent } from './ChefViews/pending/pending-status.component';
 import { DeliveredStatusComponent } from './ChefViews/delivered-status/delivered-status.component';
 import { ReadyOrdersComponent } from './waiterView/ready-orders/ready-orders.component';
+import { TotalproductComponent } from './adminViews/totalproduct/totalproduct.component';
 
 
 
@@ -60,6 +61,7 @@ import { ReadyOrdersComponent } from './waiterView/ready-orders/ready-orders.com
     PendingStatusComponent,
     DeliveredStatusComponent,
     ReadyOrdersComponent,
+    TotalproductComponent,
 
   ],
   imports: [
