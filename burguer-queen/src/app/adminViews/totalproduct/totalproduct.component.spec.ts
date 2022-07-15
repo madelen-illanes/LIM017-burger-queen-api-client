@@ -1,19 +1,18 @@
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PendingStatusComponent } from './pending-status.component';
+import { TotalproductComponent } from './totalproduct.component';
 
-describe('PendingStatusComponent', () => {
-  let component: PendingStatusComponent;
-  let fixture: ComponentFixture<PendingStatusComponent>;
+describe('TotalproductComponent', () => {
+  let component: TotalproductComponent;
+  let fixture: ComponentFixture<TotalproductComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PendingStatusComponent ]
+      declarations: [ TotalproductComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PendingStatusComponent);
+    fixture = TestBed.createComponent(TotalproductComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
