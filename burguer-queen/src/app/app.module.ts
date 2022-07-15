@@ -12,7 +12,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomeComponent } from './home/home.component';
 import { MenuService } from './services/menu.service';
 import { AuthGuard } from './auth/auth.guard';
-import { EmployeesComponent } from './employees/employees.component';
+import { EmployeesComponent } from './adminViews/employees/employees.component';
 import { ResolveStart } from '@angular/router';
 import { ChefComponent } from './ChefViews/chef/chef.component';
 import { ProductsComponent } from './waiterView/products/products.component';
@@ -33,11 +33,15 @@ import { FormModalComponent } from './adminViews/form-modal/form-modal.component
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table'; 
-import {MatIconModule} from '@angular/material/icon'; 
+import {MatIconModule} from '@angular/material/icon';
+import { EmployeesModalComponent } from './adminViews/employees-modal/employees-modal.component'; 
 import {BidiModule} from '@angular/cdk/bidi';
 import { PendingStatusComponent } from './ChefViews/pending/pending-status.component';
 import { DeliveredStatusComponent } from './ChefViews/delivered-status/delivered-status.component';
 import { ReadyOrdersComponent } from './waiterView/ready-orders/ready-orders.component';
+import { TotalproductComponent } from './adminViews/totalproduct/totalproduct.component';
+
+
 
 @NgModule({
   declarations: [
@@ -53,12 +57,14 @@ import { ReadyOrdersComponent } from './waiterView/ready-orders/ready-orders.com
     ProductsComponent,
     ModalComponent,
     FormModalComponent,
+    EmployeesModalComponent,
     PendingStatusComponent,
     DeliveredStatusComponent,
-    ReadyOrdersComponent,  
+    ReadyOrdersComponent,
+    TotalproductComponent,
+
   ],
   imports: [
-    BidiModule,
     MatIconModule,
     MatTableModule,
     MatSortModule,
@@ -113,6 +119,7 @@ export interface LoginResponse {
 
 export interface User {
   id: string;
+  password: string;
   email: string;
   roles: string;
  }

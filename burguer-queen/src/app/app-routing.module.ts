@@ -7,19 +7,21 @@ import { AdminComponent } from './adminViews/admin/admin.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth/auth.guard';
-import { EmployeesComponent } from './employees/employees.component';
+import { EmployeesComponent } from './adminViews/employees/employees.component';
 import { ChefComponent } from './ChefViews/chef/chef.component';
 import { ProductsComponent } from 'src/app/waiterView/products/products.component';
 import { PendingStatusComponent } from './ChefViews/pending/pending-status.component';
 import { DeliveredStatusComponent } from './ChefViews/delivered-status/delivered-status.component';
 import { ReadyOrdersComponent } from './waiterView/ready-orders/ready-orders.component';
+import { TotalproductComponent } from './adminViews/totalproduct/totalproduct.component';
 
 const routes: Routes = [
   { path: '',redirectTo: '/home', pathMatch: 'full'},
   { path: 'login', component: LoginComponentComponent},
   { path: 'admin', component: AdminComponent,
   children: [ 
-    {path:"employees",component: EmployeesComponent} 
+    {path:'employees',component: EmployeesComponent},
+    {path:'totalproduct',component: TotalproductComponent},
   ]
 },
   { path: 'products', component: ProductsComponent,

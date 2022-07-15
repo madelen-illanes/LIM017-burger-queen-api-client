@@ -11,6 +11,9 @@ import { Product } from 'src/app/waiterView/waiter.service';
   providedIn: 'root'
 })
 export class MenuService {
+  addUsers(arg0: string, value: any) {
+    throw new Error('Method not implemented.');
+  }
 
   private apiUrl = 'http://localhost:8080/orders/';
   private urlProducts = ' http://localhost:8080/products/';
@@ -118,6 +121,11 @@ export class MenuService {
     console.log('id', id)
     console.log('data', data)
     return this.http.patch<void>(`${this.apiUrl}${id}`, data, this.httpOptions())
+  }
+  updateEmployees( data: any, id:number): Observable<void> {  
+    console.log('id', id)
+    console.log('data', data)
+      return this.http.patch<void>(`${this.urlUser}users/${id}`, data,  this.httpOptions() )
   }
 
 }
