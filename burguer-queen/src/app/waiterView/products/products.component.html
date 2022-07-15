@@ -7,9 +7,7 @@
 </p>
 <router-outlet></router-outlet>
 <section class="content" [dir]="directionOrder"></section>
-<mat-card-actions>
-  <button mat-button (click)="openDialog()">Agregar</button>
-</mat-card-actions>
+
 <div fxLayout="row wrap" fxLayoutGap="16px grid">
   <div fxFlex="25%" fxFlex.xs="80%" fxFlex.sm="33%" *ngFor=" let product of arrayMenu ">
     <mat-card class="example-card">

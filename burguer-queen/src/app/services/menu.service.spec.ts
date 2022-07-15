@@ -53,7 +53,7 @@ describe('MenuService', () => {
       })
   })
   // TODO:Una respuesta incorrecta :400
-  it(' should return an error 400', (done: DoneFn) => {
+  it(' should return an error 400', () => {
     //TODO: mock de datos
     const invalidCredential = {
       email: 'adaj@ahd.com',
@@ -75,7 +75,7 @@ describe('MenuService', () => {
         },
         error: error => {
           expect(error.status).toEqual(400);
-          done()
+          
         }
       })
   })
