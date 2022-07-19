@@ -26,7 +26,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatInputModule} from '@angular/material/input'; 
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { ModalComponent } from './waiterView/modal/modal.component'; 
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormModalComponent } from './adminViews/form-modal/form-modal.component';
@@ -55,7 +54,6 @@ import { TotalproductComponent } from './adminViews/totalproduct/totalproduct.co
     EmployeesComponent,
     ChefComponent,
     ProductsComponent,
-    ModalComponent,
     FormModalComponent,
     EmployeesModalComponent,
     PendingStatusComponent,

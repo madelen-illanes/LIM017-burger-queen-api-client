@@ -14,10 +14,10 @@ import {MatTableModule} from '@angular/material/table'
   styleUrls: ['./employees.component.css']
 })
 export class EmployeesComponent implements OnInit {
- users: any;
+ users: any[] = [];
  form!: FormGroup;
  productsView = true;
- displayedColumns: string[] = ['email', 'password', 'roles'];
+ displayedColumns: string[] = ['email', 'password', 'roles', 'action'];
  dataSource!: MatTableDataSource<any>;
 
  @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -58,8 +58,8 @@ export class EmployeesComponent implements OnInit {
     if(confirm('¿Estás seguro?')){
       this.menuService.deleteUser(id)
       .subscribe(
-        (res: any) => { console.log('borrando empleado', res)
-          const productArray = this.users.filter((employees: any) => employees.id !== id );
+        res => { console.log('borrando empleado', res)
+          const productArray = this.users.filter( employees => employees.id !== id );
           this.users = [...productArray];
         }
       )

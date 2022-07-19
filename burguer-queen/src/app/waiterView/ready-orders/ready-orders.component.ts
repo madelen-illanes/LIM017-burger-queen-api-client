@@ -78,4 +78,5 @@ export class ReadyOrdersComponent implements OnInit {
       this.getOrdersReady();
       
       }
+    
 }
