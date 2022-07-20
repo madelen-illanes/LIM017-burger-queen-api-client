@@ -1,38 +1,30 @@
-<section class="containerChef">
-  <section class="chefContainer">
-    <mat-drawer-container class="example-container" autosize>
-      <mat-drawer #drawer class="example-sidenav" mode="side">
-        <div class="chefOptions">
-          <div routerLink="pending" (click)="renderViewPending()"
-            [className]="renderViewControler === 'pending' ? 'selectPending' : 'unselectedPending'">
-            <i class="fa-solid fa-clock"></i>
-            <p>Ordenes Pendientes</p>
+  <section class="containerChef">
+    <section class="chefContainer">
+      <mat-drawer-container class="example-container" autosize>
+        <mat-drawer #drawer class="example-sidenav" mode="side">
+          <div class="chefOptions">
+            <div routerLink="pending" (click)="renderViewPending()"
+              [className]="renderViewControler === 'pending' ? 'selectPending' : 'unselectedPending'">
+              <i class="fa-solid fa-clock"></i>
+              <p>Ordenes Pendientes</p>
+            </div>
+            <div routerLink="delivered" (click)="renderViewdelivering()"
+              [className]="renderViewControler === 'delivered' ? 'selectDelivering' : 'unselectedDelivering'">
+              <i class="fa-solid fa-clipboard-check"></i>
+              <p>Ordenes Listas</p>
+            </div>
           </div>
-
-          <div routerLink="delivered" (click)="renderViewdelivering()"
-            [className]="renderViewControler === 'delivering' ? 'selectDelivering' : 'unselectedDelivering'">
-            <i class="fa-solid fa-clipboard-check"></i>
-            <p>Ordenes Listas</p>
-          </div>
-        </div>
-        <section class="containerHomeChefBody">
-        
-          <button routerLink="" (click)="logOut()" mat-stroked-button color="warn">cerrar Sesion</button>
-        
-        </section>
-      </mat-drawer>
-      <div class="example-sidenav-content">
-        <div id="btnShoNav">
-          <button type="button" mat-button (click)="drawer.toggle()">
+          <section class="containerHomeChefBody">
+            <button routerLink="" (click)="logOut()" mat-stroked-button color="warn">cerrar Sesion</button>
+          </section>
+        </mat-drawer>
+        <div class="example-sidenav-content">
+          <button id="btnShowNav" type="button" mat-button (click)="drawer.toggle()">
             Ver Ordenes
           </button>
-        </div>
-        
-        <div id="router">
           <router-outlet></router-outlet>
         </div>
-      </div>
-    </mat-drawer-container>
+      </mat-drawer-container>
+    </section>
   </section>
-</section>
 

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DeliveredStatusComponent } from './delivered-status.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('DeliveredStatusComponent', () => {
   let component: DeliveredStatusComponent;
@@ -8,6 +9,8 @@ describe('DeliveredStatusComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule,
+      RouterTestingModule],
       declarations: [ DeliveredStatusComponent ]
     })
     .compileComponents();

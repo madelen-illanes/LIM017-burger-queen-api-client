@@ -14,10 +14,10 @@ import {MatTableModule} from '@angular/material/table'
   styleUrls: ['./employees.component.css']
 })
 export class EmployeesComponent implements OnInit {
- users: any;
+ users: any[] = [];
  form!: FormGroup;
  productsView = true;
- displayedColumns: string[] = ['email', 'password', 'roles'];
+ displayedColumns: string[] = ['email', 'password', 'roles', 'action'];
  dataSource!: MatTableDataSource<any>;
 
  @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -33,8 +33,7 @@ export class EmployeesComponent implements OnInit {
     public formBuilder: FormBuilder, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-      this.menuService.getAllUsers().
-      subscribe((users) => (this.users = users, console.info(users))),
+      this.getAllUser();
         this.form = this.formBuilder.group({
           email: ['', Validators.required],
           password: ['', Validators.required],
@@ -43,12 +42,24 @@ export class EmployeesComponent implements OnInit {
         })
   }
 
+  getAllUser(){
+    this.menuService.getAllUsers()
+    .subscribe({
+      next: (res) => {
+        console.log(res)
+        this.dataSource = new MatTableDataSource(res)
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      }
+    })
+  }
+
   onUserDelete( id: string){
     if(confirm('¿Estás seguro?')){
       this.menuService.deleteUser(id)
       .subscribe(
-        (res: any) => { console.log('borrando empleado', res)
-          const productArray = this.users.filter( (product: { id: string; }) => product.id !== id );
+        res => { console.log('borrando empleado', res)
+          const productArray = this.users.filter( employees => employees.id !== id );
           this.users = [...productArray];
         }
       )

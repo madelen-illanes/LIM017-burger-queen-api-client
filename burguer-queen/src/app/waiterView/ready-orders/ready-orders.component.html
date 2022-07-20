@@ -39,7 +39,7 @@
     <ng-container *ngIf="isShownReadyOrders" id="readyOrders">
         <!-- aqui va pedidos listos -->
         <div fxLayout="row wrap" fxLayoutGap="16px grid">
-            <div fxFlex="25%" fxFlex.xs="80%" fxFlex.sm="33%" *ngFor="let order of menuDelivered">
+            <div id="cardsReady" fxFlex="25%" fxFlex.xs="80%" fxFlex.sm="33%" *ngFor="let order of menuDelivered">
                 <mat-card class="example-card">
                     <p class="title">Orden número: {{order.id}}</p>
                     <mat-card-content>
@@ -50,7 +50,7 @@
                         <p class="client">Cliente: {{order.client}}</p>
                         <div class="productsList" *ngFor="let product of order.products">
                             <div>
-                                <img mat-card-image src="{{product.image}}" alt="Photo of product">
+                                <img mat-card-image src="{{product.image}}" alt="Photo of product" id="imgCardReady">
                                 <p class="quantity">{{product.qty}}</p>
                                 <p>{{product.name}}</p>
                                 <p> {{product.type}} </p>

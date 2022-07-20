@@ -70,3 +70,8 @@ img {
   font-size: 20px;
   margin-bottom: 0px;
 }
+.mat-card-actions{
+ display: flex;
+ flex-direction: row-reverse;
+ margin: 18% 2% 5% 2%;
+}

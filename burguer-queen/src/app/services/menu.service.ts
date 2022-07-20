@@ -76,8 +76,8 @@ export class MenuService {
   }
   
 //obtener usuarios 
-  getAllUsers(): Observable<User> {
-    return this.http.get<User>(`${this.urlUser}users`, this.httpOptions())
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.urlUser}users`, this.httpOptions())
   }
   //obtener usuarios por id
   getUser(loginResponse: any): Observable<User> {
